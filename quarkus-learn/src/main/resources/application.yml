@@ -1,0 +1,12 @@
+quarkus:
+  http:
+    port: 8080
+  datasource:
+    jdbc:
+      url: jdbc:mysql://localhost:3306/mall?useSSL=false&characterEncoding=utf8
+    username: root
+    password: root
+#  hibernate-orm:
+#    physical-naming-strategy: com.quarkus.utils.CustomPhysicalNamingStrategy
+  params:
+    test: this is a test parameter

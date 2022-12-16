@@ -1,0 +1,37 @@
+quarkus:
+  log:
+    console:
+      json:
+        date-format: YYYY-MM-dd HH:mm:ss
+        exception-output-type: formatted
+        pretty-print: true
+  banner:
+    path: banner.txt
+    enabled: true
+  s3:
+    aws:
+      region: cn-northwest-1
+      credentials:
+        static-provider:
+          access-key-id:
+          secret-access-key:
+        type: default
+custom:
+  s3:
+    load-on-startup: false
+    bucket:
+      name:
+    src:
+"%dev":
+  quarkus:
+    http:
+      port: 8081
+  hello:
+    message: config-message
+    name: name
+  aws:
+    accessKeyId: ${AWS_USERNAME:aws.username}
+    secretAccessKey: ${AWS_PASSWORD:aws.password}
+hello:
+  message: config-hello
+  name: hello-name

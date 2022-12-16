@@ -1,6 +1,8 @@
 package com.course.service;
 
+import com.course.interceptor.define.TrackLifeCycle;
 import io.quarkus.cache.CacheResult;
+import io.quarkus.logging.Log;
 import org.eclipse.microprofile.config.ConfigProvider;
 import org.eclipse.microprofile.config.inject.ConfigProperty;
 
@@ -15,6 +17,7 @@ import javax.enterprise.context.ApplicationScoped;
  * @Version 1.0
  **/
 @ApplicationScoped
+@TrackLifeCycle
 public class HelloService {
 
     @ConfigProperty(name = "hello.message")
@@ -22,6 +25,10 @@ public class HelloService {
 
     @ConfigProperty(name = "hello.name", defaultValue = "reng")
     String helloName;
+
+    public HelloService() {
+        Log.info(this.getClass().getSimpleName() + "at instance");
+    }
 
     @CacheResult(cacheName = "hello-cache")
     public String getHello() {

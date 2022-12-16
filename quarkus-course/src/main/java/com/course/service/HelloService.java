@@ -30,7 +30,7 @@ public class HelloService {
         } catch (Exception e) {
             Thread.currentThread().interrupt();
         }
-        return "获取" + message + "的时间：";
+        return "获取" + message + "的时间：" + helloName;
     }
 
     public String getHello(String name) {

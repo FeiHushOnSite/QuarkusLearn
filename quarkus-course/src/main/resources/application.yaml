@@ -1,10 +1,13 @@
 quarkus:
   log:
     console:
-      json:
-        date-format: YYYY-MM-dd HH:mm:ss
-        exception-output-type: formatted
-        pretty-print: true
+#      json:
+#        date-format: YYYY-MM-dd HH:mm:ss
+#        exception-output-type: formatted
+#        pretty-print: true
+      enable: true
+      level: ALL
+      format: "%d{yyyy-MM-dd HH:mm:ss.SSS} %-5p service=%X{myServiceName}, traceId=%X{dd.trace_id}, spanId=%X{dd.span_id} [%c{2.}] (%t) %s%e%n"
   banner:
     path: banner.txt
     enabled: true
@@ -20,7 +23,7 @@ custom:
   s3:
     load-on-startup: false
     bucket:
-      name:
+      name: test
     src:
 "%dev":
   quarkus:
